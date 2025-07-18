@@ -2,37 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-/* En lugar de definir los colores manualmente, usa Tailwind */
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color-scheme: light dark;  /* Esto ya está bien */
+  color-scheme: light dark;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+html, body {
+  scroll-behavior: auto !important;
+  overscroll-behavior: none;
+}
+
+
 body {
-  @apply bg-gray-900 text-white; /* Tailwind para fondo y texto */
-  margin: 0;
-  display: flex;
-  place-items: center;
+  @apply bg-gray-900 text-white;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #fff;
 }
 
 h1 {
-  @apply text-4xl font-bold leading-tight; /* Usamos Tailwind para el tamaño de fuente */
+  @apply text-4xl font-bold leading-tight;
 }
 
 a {
-  @apply font-medium text-indigo-500 no-underline; /* Tailwind para enlaces */
+  @apply font-medium text-indigo-500 no-underline;
 }
 
 a:hover {
-  @apply text-indigo-400; /* Colores de hover con Tailwind */
+  @apply text-indigo-400;
 }
 
 button {
