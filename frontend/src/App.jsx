@@ -1,13 +1,37 @@
+import { useEffect } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
 import Reservar from './pages/Reservar';
+import Lenis from '@studio-freight/lenis';
 
 function App() {
+  useEffect(() => {
+    const lenis = new Lenis();
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  }, []);
+
+  const toggleDarkMode = () => {
+    document.documentElement.classList.toggle('dark');
+  };
+
   return (
-    <div>
-      <nav style={{ padding: "1rem", backgroundColor: "#f2f2f2" }}>
-        <Link to="/" style={{ marginRight: "1rem" }}>Inicio</Link>
-        <Link to="/reservar" style={{ marginRight: "1rem" }}>Reservar</Link>
+    <div className="min-h-screen bg-white dark:bg-gray-900 text-black dark:text-white">
+      <button
+        onClick={toggleDarkMode}
+        className="m-4 px-3 py-1 bg-gray-300 dark:bg-gray-700 rounded"
+      >
+        🌙 Cambiar tema
+      </button>
+
+      <nav className="p-4 bg-gray-200 dark:bg-gray-800">
+        <Link to="/" className="mr-4">Inicio</Link>
+        <Link to="/reservar">Reservar</Link>
       </nav>
 
       <Routes>
